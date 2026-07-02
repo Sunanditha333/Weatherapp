@@ -1,0 +1,220 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+  font-size: 2.4rem;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  outline: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#cityInput:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.4);
+}
+
+#cityInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Small square icon button matching  */
+#locationBtn {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+#locationBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Clear wide text button underneath */
+.full-width-btn {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.full-width-btn {
+  width: max-content;           /* Adjusts width automatically to fit the text */
+  padding: 0.8rem 2.5rem;       /* Adds space inside the button sides */
+  display: block;
+  margin: 0 auto 1.5rem auto;   /* Centers the button horizontally */
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.status-msg, .error-msg {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.error-msg {
+  color: #ff6b6b;
+}
+
+.weather-result {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.location-header h2 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.display-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.display-main img {
+  width: 90px;
+  height: 90px;
+  animation: floatEffect 4s ease-in-out infinite;
+}
+
+@keyframes floatEffect {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.temp-box h3 {
+  font-size: 2.8rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.weather-desc {
+  margin: 0;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-icon {
+  font-size: 1.4rem;
+  color: #00c6ff;
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.metric-info .value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.metric-info .label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
