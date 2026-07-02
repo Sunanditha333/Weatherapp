@@ -37,19 +37,12 @@ async function fetchWeatherByCity(city) {
 
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error("City not found. Please verify spelling.");
+    if (!response.ok) throw new Error("Location not found. Please verify spelling.");
     
     const data = await response.json();
-    const apiName = data.location.name.toLowerCase();
-    const inputName = city.toLowerCase();
     
-    if (apiName !== inputName && !apiName.includes(inputName)) {
-      clearDisplayState();
-      errorDiv.textContent = `City not found. Did you mean "${data.location.name}"?`;
-      return;
-    }
-
     renderWeatherDashboard(data);
+
   } catch (error) {
     statusDiv.textContent = "";
     errorDiv.textContent = error.message;
